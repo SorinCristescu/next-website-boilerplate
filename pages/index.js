@@ -1,5 +1,5 @@
 import Head from "../layout/Head";
-import Articles from "../components/articles";
+import Articles from "../components/Articles";
 import { getArticles, getCategories } from "../lib/api";
 import Layout from "../layout/Layout";
 
