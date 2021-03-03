@@ -7,21 +7,23 @@ const Layout = ({ children, categories, article }) => {
     <>
       <Header categories={categories} />
       {article ? (
-        <>
+        <div className={styles.wrapper}>
           <img
             className={styles.image}
             src={`${process.env.NEXT_PUBLIC_API_URL}${article.image.url}`}
             alt=""
           />
-          <h1>{article.title}</h1>
+          <h1 className={styles.title}>{article.title}</h1>
 
           <div className={styles.container}>
             <main className={styles.main}>{children}</main>
           </div>
-        </>
+        </div>
       ) : (
-        <div className={styles.container}>
-          <main className={styles.main}>{children}</main>
+        <div className={styles.wrapper}>
+          <div className={styles.container}>
+            <main className={styles.main}>{children}</main>
+          </div>
         </div>
       )}
     </>

@@ -1,20 +1,19 @@
 import Link from "next/link";
 
+import styles from "../styles/Card.module.css";
 const Card = ({ article }) => {
   return (
     <Link as={`/article/${article.id}`} href="/article/[id]">
       <a>
-        <div>
+        <div className={styles.card}>
+          <img
+            src={`${process.env.NEXT_PUBLIC_API_URL}${article.image.url}`}
+            alt={`${process.env.NEXT_PUBLIC_API_URL}${article.image.alternativeText}`}
+          />
+
           <div>
-            <img
-              src={article.image.url}
-              alt={article.image.alternativeText}
-              height="100"
-            />
-          </div>
-          <div className="uk-card-body">
             {/* <p id="category">{article.category.name}</p> */}
-            <p id="title">{article.title}</p>
+            <h3>{article.title}</h3>
           </div>
         </div>
       </a>

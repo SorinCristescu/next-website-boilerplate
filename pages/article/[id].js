@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 import Moment from "react-moment";
 import { getArticles, getArticle, getCategories } from "../../lib/api";
 import Layout from "../../layout/Layout";
@@ -16,9 +17,14 @@ export default function Article({ article, categories }) {
   return (
     <Layout categories={categories} article={article}>
       <ReactMarkdown source={article.content} />
-      <p>
+      <p style={{ width: "100%", textAlign: "left" }}>
         <Moment format="MMM Do YYYY">{article.published_at}</Moment>
       </p>
+      <Link href="/">
+        <a>
+          <h2>Back</h2>
+        </a>
+      </Link>
     </Layout>
   );
 }

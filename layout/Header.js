@@ -6,7 +6,9 @@ const Header = ({ categories }) => {
   return (
     <nav className={styles.nav}>
       <Link href="/">
-        <a>Logo</a>
+        <a>
+          <h1>Blog</h1>
+        </a>
       </Link>
       <ul>
         {categories.map((category) => {

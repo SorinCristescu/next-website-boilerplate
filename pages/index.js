@@ -21,7 +21,6 @@ const Home = ({ articles, categories }) => {
     <div>
       <Head title="Home" metaContent="something, something2, something3" />
       <Layout categories={categories}>
-        <h1>Strapi blog</h1>
         <Articles articles={articles} />
       </Layout>
     </div>
