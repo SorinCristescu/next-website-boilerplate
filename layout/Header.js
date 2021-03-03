@@ -2,35 +2,22 @@ import Link from "next/link";
 
 import styles from "../styles/Header.module.css";
 
-const Header = () => {
+const Header = ({ categories }) => {
   return (
     <nav className={styles.nav}>
+      <Link href="/">
+        <a>Logo</a>
+      </Link>
       <ul>
-        <li>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <a>Link</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <a>Link</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <a>Link</a>
-          </Link>
-        </li>
+        {categories.map((category) => {
+          return (
+            <li key={category.id}>
+              <Link as={`/category/${category.id}`} href="/category/[id]">
+                <a>{category.name}</a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
